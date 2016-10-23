@@ -16,10 +16,11 @@ class App {
                 langsInfo.push(lang);
             }, errorHandler));
 
-            debugger;
-            let sortedLangs = this._sortByRating(langsInfo);
-            this._render(sortedLangs.map(l => this._builtRow(l)));
-
+            setTimeout(() => {
+                // Awiat requests end
+                let sortedLangs = this._sortByRating(langsInfo);
+                this._render(sortedLangs.map(l => this._builtRow(l)));
+            }, 5000);
         }, errorHandler);
     }
 

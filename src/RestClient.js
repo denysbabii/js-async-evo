@@ -2,7 +2,7 @@ export default class RestClient {
 
     static fetchJson(path, resolveHandler, rejectHandler) {
         let request = new XMLHttpRequest();
-        request.open('GET', path, false);
+        request.open('GET', path);
         request.onreadystatechange = () => {
             if (request.readyState == XMLHttpRequest.DONE) {
                 if (request.status !== 200) {
