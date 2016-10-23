@@ -5,14 +5,23 @@ class App {
     constructor(container) {
         this._container = container;
     }
-    list(path) {
-        RestClient.fetchJson(path)
-            .then(langs => Promise.all(langs.map(l => RestClient.fetchJson(`${path}/${l.toLowerCase()}`))))
-            .then(this._sortByRating)
-            .then(langs => langs.map(l => this._builtRow(l)))
-            .then(rows => this._render(rows))
-            .catch(console.error)
-            .then(() => console.debug('Chain finished'));
+
+    async list(path) {
+        try {
+            const langs = await RestClient.fetchJson(path);
+            const langsInfoPromises = langs.map(async l => {
+                return await RestClient.fetchJson(`${path}/${l.toLowerCase()}`);
+            });
+
+            let langsInfo = [];
+            for (const langInfoPromise of langsInfoPromises) {
+                langsInfo.push(await langInfoPromise);
+            }
+
+            this._render(this._sortByRating(langsInfo).map(l => this._builtRow(l)));
+        } catch (err) {
+            console.error('Failed to render a list of languages', err);
+        }
     }
 
     _sortByRating(langs) {
