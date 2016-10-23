@@ -6,22 +6,13 @@ class App {
         this._container = container;
     }
     list(path) {
-        let errorHandler = (error) => {
-            console.error(error);
-        };
-
-        RestClient.fetchJson(path, (langs) => {
-            let langsInfo = [];
-            langs.forEach(l => RestClient.fetchJson(`${path}/${l.toLowerCase()}`, (lang) => {
-                langsInfo.push(lang);
-            }, errorHandler));
-
-            setTimeout(() => {
-                // Awiat requests end
-                let sortedLangs = this._sortByRating(langsInfo);
-                this._render(sortedLangs.map(l => this._builtRow(l)));
-            }, 5000);
-        }, errorHandler);
+        RestClient.fetchJson(path)
+            .then(langs => Promise.all(langs.map(l => RestClient.fetchJson(`${path}/${l.toLowerCase()}`))))
+            .then(this._sortByRating)
+            .then(langs => langs.map(l => this._builtRow(l)))
+            .then(rows => this._render(rows))
+            .catch(console.error)
+            .then(() => console.debug('Chain finished'));
     }
 
     _sortByRating(langs) {
