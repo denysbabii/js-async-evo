@@ -1,7 +1,7 @@
 {
   "name": "js-async-evo",
   "version": "1.0.0",
-  "description": "Basic example of async evolution in JavaScript",
+  "description": "A basic example of async evolution in JavaScript",
   "main": "webpack.config.js",
   "scripts": {
     "wm": "java -jar wiremock-standalone-2.2.2.jar --port 8989 &> wm.log",
