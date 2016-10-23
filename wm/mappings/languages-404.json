@@ -1,0 +1,14 @@
+{
+    "request": {
+        "method": "GET",
+        "url": "/api/languages/hz"
+    },
+    "response": {
+        "status": 404,
+        "fixedDelayMilliseconds": 2000,
+        "headers": {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin" : "*"
+        }
+    }
+}

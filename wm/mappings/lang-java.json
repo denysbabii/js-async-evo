@@ -1,0 +1,15 @@
+{
+    "request": {
+        "method": "GET",
+        "url": "/api/languages/java"
+    },
+    "response": {
+        "status": 200,
+        "bodyFileName": "lang-java.json",
+        "fixedDelayMilliseconds": 500,
+        "headers": {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*"
+        }
+    }
+}

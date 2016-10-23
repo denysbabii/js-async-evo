@@ -1,0 +1,14 @@
+{
+    "request": {
+        "method": "GET",
+        "url": "/api/languages/python"
+    },
+    "response": {
+        "status": 200,
+        "bodyFileName": "lang-python.json",
+        "headers": {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*"
+        }
+    }
+}
