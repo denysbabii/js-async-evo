@@ -4,7 +4,6 @@
   "description": "A basic example of async evolution in JavaScript",
   "main": "webpack.config.js",
   "scripts": {
-    "wm": "java -jar wiremock-standalone-2.2.2.jar --port 8989 &> wm.log",
     "start": "webpack-dev-server --progress --colors --hot",
     "build": "webpack --progress --colors --watch"
   },
