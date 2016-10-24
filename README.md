@@ -8,3 +8,5 @@
 1. npm install
 2. npm build
 3. npm start
+
+### Open http://localhost:9090/ in your favorite browser
