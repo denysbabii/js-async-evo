@@ -9,14 +9,16 @@
 	<meta name="mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-	<link rel="stylesheet" href="assets/app.bundle.css">
+	<link rel="stylesheet" href="assets/jar.bundle.css">
 	<title>JS Async Evo</title>
 </head>
 
 <body>
 	<header>Programming languages rating</header>
-	<content id="root"></content>
-	<script async src="assets/app.bundle.js" charset="utf-8"></script>
+	<content id="root">Loading...</content>
+	<script src="./node_modules/react/dist/react.js"></script>
+	<script src="./node_modules/react-dom/dist/react-dom.js"></script>
+	<script async src="assets/jar.bundle.js" charset="utf-8"></script>
 </body>
 
 </html>

@@ -1,15 +1,15 @@
- var ExtractTextPlugin = require('extract-text-webpack-plugin');
+ var ExtractTextPlugin = require("extract-text-webpack-plugin");
  module.exports = {
-     entry: ['babel-polyfill', './src/app.js'],
+     entry: ["babel-polyfill", "./src/index.js"],
      output: {
-         path: './target/',
-         publicPath: 'assets',
-         filename: 'app.bundle.js',
+         path: "./target/",
+         publicPath: "assets",
+         filename: "jar.bundle.js",
      },
      devServer: {
-         contentBase: '.',
+         contentBase: ".",
          headers: {
-             'Access-Control-Allow-Origin': '*'
+             "Access-Control-Allow-Origin": "*"
          },
          inline: true,
          watch: true,
@@ -17,24 +17,24 @@
          progress: true
      },
      resolve: {
-         modulesDirectories: ['node_modules']
+         modulesDirectories: ["node_modules"]
      },
      module: {
          loaders: [{
              test: /\.js$/,
              exclude: /node_modules/,
-             loader: 'babel-loader',
+             loader: "babel-loader",
              query: {
-                 presets: ['es2015', 'es2017']
+                 presets: ["es2015", "es2017", "react"]
              }
          }, {
              test: /\.css$/,
-             loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
+             loader: ExtractTextPlugin.extract("style-loader", "css-loader")
          }]
      },
      plugins: [
-         new ExtractTextPlugin('app.bundle.css', {
+         new ExtractTextPlugin("jar.bundle.css", {
              allChunks: true
          })
      ]
- }
+ };
